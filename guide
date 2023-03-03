@@ -1,0 +1,13 @@
+function fetchTimer() {
+  const startTime = Date.now();
+  
+  return function getElapsedTime() {
+    const elapsedTime = Date.now() - startTime;
+    return elapsedTime;
+  }
+}
+This function returns a closure that captures the startTime value and returns the elapsed time whenever it's called. The startTime value is set to the current time when the fetchTimer function is first called.
+
+To use the fetchTimer function, you can call it to get the closure, and then call the closure to get the elapsed time:
+const timer = fetchTimer();
+console.log(timer()); // prints the elapsed time in milliseconds
